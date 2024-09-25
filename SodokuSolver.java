@@ -1,6 +1,5 @@
-import java.util.*;
-
 public class SodokuSolver{
+    //creates the size of the grid to 9 - standard sodoku size
     private static final  int GRID_SIZE = 9;
     public static void main(String [] args){
     
@@ -50,7 +49,6 @@ public class SodokuSolver{
             System.out.println();
         }
     }
-
     /**
      * 
      * @param board - the list of numbers
@@ -92,10 +90,13 @@ public class SodokuSolver{
      * @return -- returns true if there is a number in the box returns false if there isnt
      */
     private static boolean isNumberInBox(int[][] board, int number, int row, int column){
-        int localBoxRow = row - row % 3;
+        // using mod to get to row/column of the position
+        int localBoxRow = row - row % 3;  
         int localBoxColumn = column - column % 3;
 
+        //goes through all 3 rows
         for(int i = localBoxRow; i < localBoxRow + 3; i++){
+            //goes through all 3 columns
             for(int j = localBoxColumn; j < localBoxColumn + 3; j++){
                 if(board[i][j] == number){
                     return true;
